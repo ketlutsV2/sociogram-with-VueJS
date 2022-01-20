@@ -1,15 +1,15 @@
 <template>
-  <ConnexionScreen/>
+  <ConnexionScreen />
 </template>
 
 <script>
 // @ is an alias to /src
-import ConnexionScreen from '@/components/ConnexionScreen.vue'
+import ConnexionScreen from "@/components/ConnexionScreen.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    ConnexionScreen
-  }
-}
+    ConnexionScreen,
+  },
+};
 </script>

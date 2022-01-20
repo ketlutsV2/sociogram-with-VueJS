@@ -9,7 +9,6 @@
         </span>
       </span>
     </div>
-
     <div class="template template_connexion box">
       <div class="flex-rows main">
         <div class="main-reverse flex-rows flex-3">
@@ -115,7 +114,8 @@
    app.connexionRender();
    return false;
  }*/
-
+this.APIcallback();
+return;
 
  axios.post(
   'http://localhost:80/monsociogram.me/apiVue/index.php?go=users&q=sessionInit', 

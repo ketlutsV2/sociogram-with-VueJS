@@ -4,5 +4,9 @@ import store from './store'
 import router from '@/router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import APIcallback from '@/plugins/APIcallback'
 
-const Vue=createApp(App).use(router).use(store).use(VueAxios, axios).mount('#app')
+
+
+
+const app=createApp(App).use(router).use(store).use(VueAxios, axios).use(APIcallback).mount('#app')
