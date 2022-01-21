@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    serveur:'http://localhost:80/monsociogram.me/apiVue/',
     user:{
       id:0,
       pseudo:'',
