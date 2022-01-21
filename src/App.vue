@@ -3,28 +3,25 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div> -->
-  <router-view/>
+  <router-view />
 
   <div id="swalBloc"></div>
-<FooterBloc/>
+  <FooterBloc />
 </template>
 
 <script>
 // @ is an alias to /src
-import FooterBloc from '@/components/FooterBloc.vue'
+import FooterBloc from "@/components/FooterBloc.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    FooterBloc
+    FooterBloc,
   },
-  mounted(){
-
-      }
-}
+  mounted() {},
+};
 </script>
 
 <style lang="scss">
- @import './styles/scss/_app.scss';
-
+@import "./styles/scss/_app.scss";
 </style>

@@ -8,14 +8,9 @@
 <script>
 // @ is an alias to /src
 
-
 export default {
-  name: 'About',
-  components: {
-    
-  },
-  mounted(){
-  
-      }
-}
+  name: "About",
+  components: {},
+  mounted() {},
+};
 </script>

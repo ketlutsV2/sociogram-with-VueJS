@@ -117,7 +117,11 @@
                     Annuler
                   </button>
                   <button
-                    class="btn btn-primary float-right connexion-btn connexion-requise"
+                    class="
+                      btn btn-primary
+                      float-right
+                      connexion-btn connexion-requise
+                    "
                     onclick="app.connexionValidForm();"
                   >
                     <span class="bi bi-plus"></span> Créer ce compte

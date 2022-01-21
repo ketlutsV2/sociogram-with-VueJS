@@ -1,4 +1,4 @@
-@use 'vars.scss';
+@use "vars.scss";
 
 #header {
     z-index: 9;
@@ -10,7 +10,7 @@
     margin-left: auto;
     padding-top: 5px;
     /*padding-bottom: 5px;*/
-    
+
     display: none;
     position: sticky;
 }
@@ -18,29 +18,25 @@
     z-index: 3 !important;
 }
 
-#header.ppView{
-border-bottom: 0px;
-  
+#header.ppView {
+    border-bottom: 0px;
 }
 
 #header > .well {
     margin-bottom: 0;
 }
 #titre {
-   
-font-size: 20px;
-font-weight: bold;
-
-
+    font-size: 20px;
+    font-weight: bold;
 }
-.header-logo{
-cursor: pointer;
+.header-logo {
+    cursor: pointer;
 }
-#header-toolbar-right{
-text-align: right;
+#header-toolbar-right {
+    text-align: right;
 }
 
-#header-page-select{
+#header-page-select {
     display: inline-block !important;
     width: 80%;
 }

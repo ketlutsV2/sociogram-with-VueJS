@@ -1,16 +1,15 @@
-@use 'vars.scss';
+@use "vars.scss";
 
 html,
 body {
     height: 100% !important;
 }
 body {
-   background-color: vars.$primary;
+    background-color: vars.$primary;
 }
 
-
 #main {
- flex: 1; 
+    flex: 1;
 }
 
 #footer {
@@ -20,32 +19,31 @@ body {
     min-height: 35px;
     text-align: center;
 }
-#app{
+#app {
     margin-right: 0.5%;
     margin-left: 0.5%;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
-a{
-    text-decoration:none !important;
+a {
+    text-decoration: none !important;
 }
 
-.small-screen{
+.small-screen {
     display: none;
 }
 .large-screen {
     display: default;
 }
 
-#splash-screen{
+#splash-screen {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-#html2pdf-page{
+#html2pdf-page {
     display: none;
     position: relative;
     width: 100%;
@@ -98,137 +96,126 @@ UI COMMON
     overflow: hidden;
 }
 
-.subtitle{
-    font-size:1.1em;
-    margin-bottom:20px;
+.subtitle {
+    font-size: 1.1em;
+    margin-bottom: 20px;
 }
 
-.form-control{
+.form-control {
     appearance: auto !important;
 }
 
-    .my-flaticon::before {
-        font-size: 13pt !important;
-    }
-    [class^="flaticon-"]:before,
-    [class*=" flaticon-"]:before,
-    [class^="flaticon-"]:after,
-    [class*=" flaticon-"]:after {
-        margin-left: 0;
-    }
+.my-flaticon::before {
+    font-size: 13pt !important;
+}
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+    margin-left: 0;
+}
 
- 
-  
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-        margin-top: 4px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .well{
-
-        background-color: #F5F3F5;
-        padding: 10px;
-
-    }
-
-    .inline-block{
-        display: inline-block;
-    }
-
-    .box {
-        margin-top: 3px;
-        padding: 10px 20px 5px 20px;
-        background-color: #ffffff;
-        border-radius: 5px;
-    }
-
-    .tab-row:hover {
-        background-color: #E3E3E3 !important;
-        cursor: pointer;
-    }
-    .btn{
-        padding: 0.20rem .5rem;
-    }
-    .btn-light{
-        border-color:#cfcfcf !important;
-    }
-  
-    .btn-toolbar {
-     padding-left: 0 !important;
-      border-bottom: 1px dashed #E3E3E3;
-      padding-bottom:10px;
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    margin-top: 4px;
     margin-bottom: 10px;
- }
- .aside {
+    text-align: center;
+}
+
+.well {
+    background-color: #f5f3f5;
+    padding: 10px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.box {
+    margin-top: 3px;
+    padding: 10px 20px 5px 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.tab-row:hover {
+    background-color: #e3e3e3 !important;
+    cursor: pointer;
+}
+.btn {
+    padding: 0.2rem 0.5rem;
+}
+.btn-light {
+    border-color: #cfcfcf !important;
+}
+
+.btn-toolbar {
+    padding-left: 0 !important;
+    border-bottom: 1px dashed #e3e3e3;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.aside {
     position: relative;
     padding-left: 10px;
-    border-left: 1px dashed #E3E3E3;
+    border-left: 1px dashed #e3e3e3;
     margin-left: 10px;
 }
 
-
-.bold{
-  font-weight: bold;
+.bold {
+    font-weight: bold;
 }
-.movable{
+.movable {
     cursor: move;
 }
-.pointer{
-    cursor: pointer;    
+.pointer {
+    cursor: pointer;
 }
-.pointer:hover{
- background-color:  #E3E3E3 !important; 
+.pointer:hover {
+    background-color: #e3e3e3 !important;
 }
 
 .user {
     padding: 5px;
 }
 
-
-
-.valign{
+.valign {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
-
-.ui-draggable-dragging{
-    z-index:9999 !important;
+.ui-draggable-dragging {
+    z-index: 9999 !important;
 }
 
-.form-control{
+.form-control {
     z-index: 1 !important;
 }
 
-
-
-small, .small{
+small,
+.small {
     font-size: 0.7em;
     display: inline-block;
     text-align: left;
     color: #606060;
 }
 
-
-.paginate_button{
+.paginate_button {
     padding: 0px !important;
 }
 
-.switch-box{
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   position: relative;
+.switch-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
-.switch-box>.switch{
+.switch-box > .switch {
     position: absolute;
     right: 4px;
 }
