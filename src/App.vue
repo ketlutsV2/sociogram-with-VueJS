@@ -5,7 +5,7 @@
   </div> -->
   <router-view/>
 
-  
+  <div id="swalBloc"></div>
 <FooterBloc/>
 </template>
 
