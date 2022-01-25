@@ -160,10 +160,14 @@ export default {
       this.getSessionID({
         user_pseudo: this.user_pseudo,
         user_pass: this.user_pass_1,
-        app:app
+        app: app,
+      }).then(() => {
+        this.loadData({
+          app: app,
+        });
       });
     },
-    ...mapActions(["getSessionID"]),
+    ...mapActions(["getSessionID", "loadData"]),
   },
 };
 </script>
