@@ -37,8 +37,7 @@
                     <input
                       class="form-control"
                       ref="pseudoInput"
-                      :value="user_pseudo"
-                      @input="setUserPseudo"
+                      v-model="user_pseudo"
                       placeholder="Pseudo"
                     />
                   </div>
@@ -117,11 +116,7 @@
                     Annuler
                   </button>
                   <button
-                    class="
-                      btn btn-primary
-                      float-right
-                      connexion-btn connexion-requise
-                    "
+                    class="btn btn-primary float-right connexion-btn connexion-requise"
                     onclick="app.connexionValidForm();"
                   >
                     <span class="bi bi-plus"></span> Créer ce compte
@@ -135,7 +130,6 @@
           <!-- ASIDE -->
         </div>
       </div>
-
       <div class="clearfix"></div>
       <div id="connexion-plugins-bloc"></div>
     </div>
@@ -143,17 +137,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import axios from "axios";
-import VueAxios from "vue-axios";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "ConnexionScreen",
   data: function () {
     return {
       modeDuFormulaire: "connexion",
+      user_pseudo: "",
       user_pass_1: "",
       user_pass_2: "",
+      sessionID: null,
     };
   },
   components: {},
@@ -161,27 +155,16 @@ export default {
     focusInput() {
       this.$refs.pseudoInput.focus();
     },
-    setUserPseudo(e) {
-      this.$store.commit("setUserPseudo", e.target.value);
-    },
     connexion() {
-      const pseudo_utilisateur = this.$store.state.user.pseudo;
-
-      const APIcallback = this.APIcallback;
-      axios
-        .post(this.$store.state.serveur + "index.php?go=users&q=sessionInit", {
-          nom_etablissement: pseudo_utilisateur,
-          pseudo_utilisateur: pseudo_utilisateur,
-          pass_utilisateur: this.user_pass_1,
-        })
-        .then(function (response) {
-          APIcallback(response.data);
-        });
+      const app = this;
+      this.getSessionID({
+        user_pseudo: this.user_pseudo,
+        user_pass: this.user_pass_1,
+        app:app
+      });
     },
+    ...mapActions(["getSessionID"]),
   },
-  computed: mapState({
-    user_pseudo: (state) => state.user.pseudo,
-  }),
 };
 </script>
 
