@@ -1,11 +1,6 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
   <router-view />
 
-  <div id="swalBloc"></div>
   <FooterBloc />
 </template>
 
@@ -23,5 +18,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./styles/scss/_app.scss";
+@import "./styles/sociogram.scss";
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="footer" class="box">
-    <img src="@/assets/img/logo.svg" width="20px" />
+    <img src="assets/img/logo.svg" width="20px" />
     <a href="https://MonSociogram.me/">MonSociogram.me</a> |
     <span id="footer-version" class="large-screen"></span> |
     <a href="#mentions">Mentions légales</a> |

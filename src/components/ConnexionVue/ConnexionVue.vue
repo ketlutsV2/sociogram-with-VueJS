@@ -32,7 +32,7 @@ export default {
           app: app,
         });
       }).then(()=>{
-        router.push('mentions');
+        router.push('home');
       });
     },
     ...mapActions(["getSessionID", "loadData"]),

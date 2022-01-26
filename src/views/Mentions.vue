@@ -2,7 +2,7 @@
   <div class="box" id="mentions-header">
     <span class="h1">
       <router-link to="/" title="MonSociogram.me"
-        ><img src="@/assets/img/logo.svg" width="50"
+        ><img src="assets/img/logo.svg" width="50"
       /></router-link>
       <span> MonSociogram<span class="small">.me</span> </span>
     </span>

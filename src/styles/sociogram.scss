@@ -18,9 +18,9 @@ along with Sociogram  If not, see <https://www.gnu.org/licenses/>.*/
 @use "scss/vars.scss";
 
 //Bootstrap Custom
-@use "../lib/bootstrap-5.0.0/scss/bootstrap.scss" with (
-  $primary: vars.$primary
-);
+// @use "../lib/bootstrap-5.0.0/scss/bootstrap.scss" with (
+//   $primary: vars.$primary
+// );
 
 @use "scss/_app.scss";
 @use "scss/_classroom.scss";
