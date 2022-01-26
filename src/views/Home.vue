@@ -16,7 +16,7 @@
             <div class="bold text-start mb-3">Choisis une cohorte.</div>
             <div id="home-classrooms-liste">
               <template
-                v-for="classe in cohortes"
+                v-for="classe in visibleCohortes"
                 v-bind:key="classe.classe_id"
               >
                 <div
@@ -75,6 +75,9 @@ export default {
   },
   computed: {
     ...mapState(["cohortes", "sessionID"]),
+    visibleCohortes: function () {
+      return this.cohortes.filter((cohorte) => cohorte.classe_id > -1);
+    },
   },
   components: {
     HeadersBloc,
@@ -114,7 +117,6 @@ export default {
     if (!this.sessionID) {
       router.push("/");
     }
-
     this.setHeaderTitle(this.title);
   },
 };
