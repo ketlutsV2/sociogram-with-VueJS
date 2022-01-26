@@ -130,6 +130,21 @@ export default createStore({
         resolve();
       });
     },
+    addCohorte: function ({ state, dispatch }, cohorte_name) {
+      return new Promise((resolve, reject) => {
+        const app = this;
+        axios
+          .post(state.serveur + "index.php?go=classe&q=add", {
+            classe_nom: cohorte_name,
+            sessionParams: state.sessionParams,
+          })
+          .then((response) => {
+            let data = response.data;
+            dispatch("buildCohortes", data.classes).then(() => {});
+            resolve();
+          });
+      });
+    },
   },
   modules: {},
 });

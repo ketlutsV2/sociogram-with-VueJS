@@ -5,10 +5,7 @@
         <div class="large-screen">
           <a href="#home" title="MonSociogram.me" class="me-2">
             <img class="header-logo" src="assets/img/logo.svg" width="50" />
-          </a>
-          <div class="btn-group">
-            <div id="header-toolbar-after"></div>
-          </div>
+          </a>          
           <span class="title" id="titre" v-html="headerTitle"></span>
         </div>
       </div>

@@ -1,12 +1,12 @@
 <template>
-<HeadersBloc />
+  <HeadersBloc />
 
   <div class="template_home template flex-columns box flex-1">
     <div class="main flex-rows flex-1">
       <div class="flex-columns flex-4 large-screen">
         <div class="flex-columns home-page" id="home-classrooms">
           <div class="btn-toolbar">
-            <button class="btn btn-light" onclick="app.renderClasseAdd();">
+            <button class="btn btn-light" @click="renderAddClasse">
               <img src="assets/svg/all/003-group.svg" width="25" />
               Nouvelle cohorte
             </button>
@@ -73,21 +73,49 @@ export default {
       title: 'MonSociogram<span class="small">.me</span>',
     };
   },
-    computed: {
+  computed: {
     ...mapState(["cohortes", "sessionID"]),
   },
   components: {
     HeadersBloc,
   },
   methods: {
-    ...mapActions(["setHeaderTitle"]),
+    renderAddClasse: function () {
+      this.$swal({
+        text: "Nom de la nouvelle cohorte ?",
+        input: "text",
+        inputPlaceholder: "6ème A",
+        icon: "warning",
+        heightAuto: false,
+        confirmButtonText: "Enregistrer",
+        inputValidator: (value) => {
+          if (!value) {
+            return "Il faut indiquer un nom de cohorte.";
+          }
+        },
+      }).then((response) => {
+        if (!response.isConfirmed) {
+          return;
+        }
+
+        this.addCohorte(response.value).then(() => {
+          this.$swal({
+            text: "Cohorte créé !",
+            icon: "success",
+            heightAuto: false,
+            timer: 5000,
+          });
+        });
+      });
+    },
+    ...mapActions(["addCohorte", "setHeaderTitle"]),
   },
   mounted: function () {
     if (!this.sessionID) {
       router.push("/");
     }
-    
-     this.setHeaderTitle(this.title);
+
+    this.setHeaderTitle(this.title);
   },
 };
 </script>
