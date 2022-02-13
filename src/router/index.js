@@ -30,11 +30,28 @@ const routes = [
       return import('../views/Mentions.vue')
     }
   },
-  { path: '/cohorte/:id',
+  { path: '/cohorte/:cohorte_id',
   name : 'Cohorte',
   component: function () {
     return import('../views/Cohorte.vue')
-  }},
+  },
+  children: [
+    {
+      path: 'import',
+      component: function () {
+        return import('@/components/PersonsImport.vue')
+      }
+    },
+    {
+      path: '',
+      component: function () {
+        return import('@/components/CohorteMain.vue')
+      }
+    }
+   
+  ],
+},
+  
 
 ]
 
