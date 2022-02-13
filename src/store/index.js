@@ -13,6 +13,7 @@ export default createStore({
     version: "v20220102",
     headerTitle: "",
     cohortes: [],
+    persons: []
   },
   mutations: {
     SET_SESSIONID(state, sessionID) {
@@ -29,6 +30,9 @@ export default createStore({
     },
     SET_COHORTES(state, cohortes) {
       state.cohortes = cohortes;
+    },
+    SET_PERSONS(state, persons) {
+      state.persons = persons;
     },
     ADD_PERSON_TO_COHORTE(state, relation) {
       state.cohortes
@@ -78,12 +82,8 @@ export default createStore({
           })
           .then((response) => {
             let data = response.data;
-            if (data.classes) {
-              this.dispatch("buildCohortes", data.classes).then(() => {});
-            }
-            if (data.personsByCohortes) {
-              this.dispatch("buildPersonsByCohorte", data.elevesByClasses);
-            }
+            this.dispatch("dataCallBack", data).then(() => { });
+
           })
           .catch((error) => {
             if (error.response) {
@@ -92,6 +92,17 @@ export default createStore({
           });
         resolve();
       });
+    },
+    dataCallBack({ state, commit, dispatch }, data) {
+      if (data.classes) {
+        this.dispatch("buildCohortes", data.classes).then(() => { });
+      }
+      if (data.persons) {
+        this.dispatch("buildPersons", data.persons).then(() => { });
+      }
+      if (data.personsByCohortes) {
+        this.dispatch("buildPersonsByCohorte", data.elevesByClasses);
+      }
     },
     setHeaderTitle({ commit }, title) {
       commit("SET_HEADER_TITLE", title);
@@ -140,9 +151,15 @@ export default createStore({
           })
           .then((response) => {
             let data = response.data;
-            dispatch("buildCohortes", data.classes).then(() => {});
+            dispatch("buildCohortes", data.classes).then(() => { });
             resolve();
           });
+      });
+    },
+    buildPersons({ commit }, persons) {
+      return new Promise((resolve, reject) => {
+        commit("SET_PERSONS", persons);
+        resolve();
       });
     },
   },

@@ -32,7 +32,7 @@
                       <div class="flex-1 text-start">
                         <a
                           class="btn btn-light btn-sm"
-                          href="#classroom/{{classe.classe_id}}"
+                          v-bind:href="`#cohorte/${classe.classe_id}`"
                           onclick="event.stopPropagation();"
                         >
                           <span class="bi bi-person-plus-fill"></span>

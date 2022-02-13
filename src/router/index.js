@@ -29,7 +29,13 @@ const routes = [
     component: function () {
       return import('../views/Mentions.vue')
     }
-  }
+  },
+  { path: '/cohorte/:id',
+  name : 'Cohorte',
+  component: function () {
+    return import('../views/Cohorte.vue')
+  }},
+
 ]
 
 const router = createRouter({
