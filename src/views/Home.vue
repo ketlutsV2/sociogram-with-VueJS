@@ -20,7 +20,7 @@
                 v-bind:key="classe.classe_id"
               >
                 <div
-                  class="home-classroom-btn me-2"
+                  class="home-classroom-btn me-2 mb-2"
                   onclick="app.go('sociogrammes/{{classe.classe_id}}');"
                 >
                   <div class="home-classroom-box flex-columns">

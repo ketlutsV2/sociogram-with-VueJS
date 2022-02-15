@@ -28,7 +28,7 @@
   <vue-good-table
     v-on:selected-rows-change="selectionChanged"
     :columns="columns"
-    :rows="this.persons"
+    :rows="personsInCohorte"
     :search-options="{
       enabled: true,
     }"
@@ -47,6 +47,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import axios from "axios";
+import router from "@/router";
 
 export default {
   name: "CohorteMain",
@@ -73,7 +74,23 @@ export default {
   },
   components: {},
   computed: {
-      ...mapState(["serveur", "sessionID", "sessionParams", "persons"]),
+    ...mapState([
+      "serveur",
+      "sessionID",
+      "sessionParams",
+      "persons",
+      "cohortes",
+    ]),
+    personsInCohorte: function () {
+      return this.persons.filter(
+        (person) =>
+          this.cohortes
+            .find(
+              (cohorte) => cohorte.classe_id == this.$route.params.cohorte_id
+            )
+            .eleves.indexOf(person.eleve_id) >= 0
+      );
+    },
   },
   methods: {
     ...mapActions(["setHeaderTitle", "dataCallBack"]),
@@ -102,7 +119,7 @@ export default {
         allowOutsideClick: () => !this.$swal.isLoading(),
       }).then((result) => {
         if (result.isConfirmed) {
-         this.$swal({
+          this.$swal({
             title: `Personnes supprimées !`,
           });
         }
@@ -125,7 +142,7 @@ export default {
       // );
     },
   },
-  mounted: function () {  
+  mounted: function () {
     this.setHeaderTitle(this.title);
   },
 };
