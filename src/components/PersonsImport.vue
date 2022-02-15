@@ -81,16 +81,15 @@
             </small>
           </div>
           <textarea
-            id="import-tableur"
             class="form-control"
             placeholder="Copier/Coller depuis le tableur."
+            v-model="personsFromTableur"
           ></textarea>
           <div class="text-center">
             <button
               class="btn btn-light"
               id="import-tableur-btn"
-              onclick="app.importFromTableur();"
-              data-loading-text="Import en cours..."
+              @click="importFromTableur"
             >
               <span class="bi bi-cloud-upload"></span> Importer
             </button>
@@ -118,6 +117,7 @@ export default {
           id: 0,
         },
       ],
+      personsFromTableur: "",
       count: 0,
     };
   },
@@ -139,6 +139,21 @@ export default {
         this.newsPersons.findIndex((person) => person.id == id),
         1
       );
+    },
+    importFromTableur: function () {
+      let split = this.personsFromTableur.split("\n");
+      let persons = [];
+      for (let i = split.length - 1; i >= 0; i--) {
+        let eleve_tab = split[i];
+        let eleve = eleve_tab.split("\t");
+        this.count++;
+        persons.push({
+          person_nom: eleve[0],
+          person_prenom: eleve[1],
+          id: this.count,
+        });
+      }
+      this.newsPersons = persons;
     },
     saveNewsPersons: function () {
       axios
