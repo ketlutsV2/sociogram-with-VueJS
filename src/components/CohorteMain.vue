@@ -1,11 +1,12 @@
 <template>
   <div class="toolbar flex-rows mb-3">
     <div class="text-start flex-1">
-     <a v-bind:href="`#cohorte/${$route.params.cohorte_id}/import`" class="btn btn-light me-2">
-  <span class="bi bi-plus"></span> Nouvelles personnes
-
-</a>
-
+      <a
+        v-bind:href="`#cohorte/${$route.params.cohorte_id}/import`"
+        class="btn btn-light me-2"
+      >
+        <span class="bi bi-plus"></span> Nouvelles personnes
+      </a>
       <div
         class="btn btn-light ifCohortes large-screen"
         onclick="app.go('sociogrammes/'+app.currentClasse.classe_id+'');"
@@ -72,7 +73,7 @@ export default {
   },
   components: {},
   computed: {
-    ...mapState(["serveur", "sessionID", "sessionParams", "persons"]),
+      ...mapState(["serveur", "sessionID", "sessionParams", "persons"]),
   },
   methods: {
     ...mapActions(["setHeaderTitle", "dataCallBack"]),
@@ -85,7 +86,7 @@ export default {
         showCancelButton: true,
         confirmButtonText: "Supprimer",
         showLoaderOnConfirm: true,
-        preConfirm: () => {
+        preConfirm: async () => {
           return axios
             .post(this.serveur + "index.php?go=eleves&q=delete", {
               eleves: JSON.stringify(
@@ -101,7 +102,7 @@ export default {
         allowOutsideClick: () => !this.$swal.isLoading(),
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
+         this.$swal({
             title: `Personnes supprimées !`,
           });
         }
@@ -123,6 +124,9 @@ export default {
       //   }
       // );
     },
+  },
+  mounted: function () {  
+    this.setHeaderTitle(this.title);
   },
 };
 </script>

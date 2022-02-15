@@ -38,7 +38,6 @@ export default createStore({
       state.cohortes
         .find((element) => element.classe_id == relation.rec_classe)
         .eleves.push(relation.rec_eleve);
-      alert("f");
     },
   },
   actions: {
@@ -101,7 +100,7 @@ export default createStore({
         this.dispatch("buildPersons", data.persons).then(() => { });
       }
       if (data.personsByCohortes) {
-        this.dispatch("buildPersonsByCohorte", data.elevesByClasses);
+        this.dispatch("buildPersonsByCohorte", data.personsByCohortes);
       }
     },
     setHeaderTitle({ commit }, title) {
